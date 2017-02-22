@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.cherry.pojo.Regist" table="register">
+        <id name="username" type="java.lang.String" column="pname">
+            <generator class="assigned"/>
+        </id>
+        <property name="pass" type="java.lang.Integer">
+            <column name="password"/>
+        </property>
+        
+    <!--     <property name="createdBy" type="java.lang.String">
+            <column name="CREATED_BY"/>
+        </property>
+        <property name="createdDate" type="java.util.Date">
+            <column name="CREATED_DATE"/>
+        </property> -->
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="com.cherry.pojo.Regist" table="register">
+    <id name="id" type="java.lang.Integer" >
+            <column name="pid" />
+            <generator class="native"/>  
+        </id>
+         <property name="username" type="java.lang.String">
+            <column name="name"/>
+        </property>
+        <property name="pass" type="java.lang.String">
+            <column name="password"/>
+        </property>
+                <property name="address" type="java.lang.String">
+            <column name="address"/>
+        </property>
+                <property name="email" type="java.lang.String">
+            <column name="email"/>
+        </property>
+    </class>
+</hibernate-mapping>
