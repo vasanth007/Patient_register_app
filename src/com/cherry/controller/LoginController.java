@@ -22,7 +22,7 @@ public class LoginController
 		public Response doPost(Regist regist){
 		
 			System.out.println("inside login method");
-			Boolean loginStatus = Login.GetLogin(name,pass);
+			Boolean loginStatus = Login.GetLogin(regist.getUsername(),regist.getPass());
 			
    
 		try{
