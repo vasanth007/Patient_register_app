@@ -40,7 +40,6 @@ public class Regist
 	
 	@Override
 		public String toString() {
-			// TODO Auto-generated method stub
 			return this.username;
 		}
 	

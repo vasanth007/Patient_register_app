@@ -9,27 +9,37 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.Session;
+
+import com.cherry.connection.Config;
 import com.cherry.model.Details;
+import com.cherry.pojo.Appoint_Details;
 
 @Path("/det")
 public class DetailsController{
 
 	@POST
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
-	public Response service(@FormParam("n1") String name,@FormParam("a1") String age,@FormParam("d") String disease ,@FormParam("d1") String date)
+	@Consumes(MediaType.APPLICATION_JSON) 
+	public Response service(Appoint_Details appoint)
 	{
-		Details.GetDetails(name, age, disease, date);
-		try{
-			System.out.println("inside details");
-			java.net.URI location;
-			location = new java.net.URI("../DetailStored.html");
-			return Response.temporaryRedirect(location).build();
+		System.out.println("hi i am in register ");
+		Session session = Config.Hiber();
+		session.beginTransaction();
+		
+		 session.save(appoint);
+	       session.getTransaction().commit();
+	       session.close();
+	       
+	       System.out.println(appoint.getDate()+" "+appoint.getDisease());
+			try{
+				java.net.URI location;
+				location = new java.net.URI("../Reg.jsp");
+				return  Response.status(200).entity("").build();
 
-			} catch (URISyntaxException e) {
-			e.printStackTrace();
+				} catch (URISyntaxException e) {
+				e.printStackTrace();
 
-			}
-
+				}
 		return null;
 		}
 }

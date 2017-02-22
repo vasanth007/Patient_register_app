@@ -35,7 +35,7 @@ public class RegisterController
 			try{
 				java.net.URI location;
 				location = new java.net.URI("../Reg.jsp");
-				return Response.temporaryRedirect(location).build();
+				return Response.status(200).entity("").build();
 
 				} catch (URISyntaxException e) {
 				e.printStackTrace();

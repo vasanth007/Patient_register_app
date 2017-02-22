@@ -1,8 +1,6 @@
 package com.cherry.model;
 
-import java.util.Iterator;
 import java.util.List;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -19,14 +17,14 @@ public class Login
 		Session session=Config.Hiber();
 		Transaction transaction = session.beginTransaction();
 		
-	        Query query = session.createQuery("from Register where username=:u and password=:p");
+	        Query query = session.createQuery("from Regist as r where r.username=:u and r.pass=:p");
 	        query.setParameter("u",username);
 	        query.setParameter("p",password);
-	       List list=query.list(); 
+	       List<Regist> list=query.list(); 
 	        System.out.println(list);
 	        transaction.commit();
 			session.close();
-         if(list.toString()=="[]")
+         if(!list.isEmpty())
          {
         	 return true;
          }

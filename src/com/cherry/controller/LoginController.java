@@ -24,27 +24,14 @@ public class LoginController
 			System.out.println("inside login method");
 			Boolean loginStatus = Login.GetLogin(regist.getUsername(),regist.getPass());
 			
-   
-		try{
-			java.net.URI location;
+  
 			if(loginStatus){
-				location = new java.net.URI("../Weluser.jsp");
+				return Response.status(200).entity("").build();
 			}else{
-				location = new java.net.URI("../Login.html");
+				return Response.status(401).entity("").build();
 			}
 			
-			return Response.temporaryRedirect(location).build();
-
-			} catch (URISyntaxException e) {
-			e.printStackTrace();
-
-			}
-		return null;
-		}
-		public static String Get()
-		{
-			return name_1;
-			
+	
 		}
 		
 		
